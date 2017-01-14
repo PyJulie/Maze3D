@@ -13,7 +13,7 @@ enum ANIMATION_STATE {
   ANIMATION_ACTIVE,
   ANIMATION_END
 };
-
+//
 class Game {
 public:
   Game(GLuint w, GLuint h);
