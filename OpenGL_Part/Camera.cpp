@@ -37,6 +37,7 @@ void Camera::ProcessMouseMovement(GLfloat xoffset, GLfloat yoffset, GLboolean co
       this->Picth = 89.0f;
     if (this->Picth < -89.0f)
       this->Picth = -89.0f;
+    //
   }
 
   this->updateCameraVectors();
@@ -51,6 +52,7 @@ void Camera::ProcessMouseScroll(GLfloat yoffset)
   if (this->Zoom < 1.0f)
     this->Zoom = 1.0f;
 }
+//
 
 void Camera::updateCameraVectors()
 {
