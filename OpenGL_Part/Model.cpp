@@ -14,7 +14,7 @@ GLuint TextureFromFile(const char * path, string directory)
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
   glGenerateMipmap(GL_TEXTURE_2D);
 
-  //参数
+  //虏脦脢媒
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -79,19 +79,19 @@ Mesh Model::processMesh(aiMesh * mesh, const aiScene * scene)
     Vertex vertex;
 
     glm::vec3 vector;
-    //顶点位置
+    //露楼碌茫脦禄脰脙
     vector.x = mesh->mVertices[i].x;
     vector.y = mesh->mVertices[i].y;
     vector.z = mesh->mVertices[i].z;
     vertex.Position = vector;
 
-      //法线
+      //路篓脧脽
     vector.x = mesh->mNormals[i].x;
     vector.y = mesh->mNormals[i].y;
     vector.z = mesh->mNormals[i].z;
     vertex.Normal = vector;
 
-    //纹理
+    //脦脝脌铆
     if (mesh->mTextureCoords[0]) {
       glm::vec2 vec;
       vec.x = mesh->mTextureCoords[0][i].x;
@@ -142,7 +142,7 @@ vector<Texture> Model::loadMaterialTexture(aiMaterial * mat, aiTextureType type,
         break;
       }
     }
-
+//
     if (!skip) {
       Texture texture;
       texture.id = TextureFromFile(str.C_Str(), this->directory);
@@ -158,17 +158,3 @@ vector<Texture> Model::loadMaterialTexture(aiMaterial * mat, aiTextureType type,
 }
 
 
-//#version 330 core
-//
-//in vec2 TexCoords;
-//
-//out vec4 color;
-//
-//uniform sampler2D texture_diffuse1;
-//uniform sampler2D texture_diffuse2;
-//
-//void main()
-//{
-//  color = mix(texture(texture_diffuse1, TexCoords), texture(texture_diffuse2, TexCoords), 0.5);
-//  //    color = vec4(texture(texture_diffuse1, TexCoords));
-//}
