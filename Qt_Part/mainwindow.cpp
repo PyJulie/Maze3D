@@ -11,9 +11,6 @@
 #include <QTextStream>
 #include <QMessageBox>
 #include <cstdlib>
-#include <GL/gl.h>
-#include <GL/glu.h>
-#include <GL/glaux.h>
 #include <QDebug>
 #include <QProcess>
 using namespace std;
@@ -89,7 +86,7 @@ void BFS(int sx, int sy,int ex, int ey) {
         step++;
     }
     out<<1<<" "<<1<<"\n";
-    cout<<"Â·¾¶:"<<endl;
+    cout<<"è·¯å¾„:"<<endl;
     while (!showStack.IsEmpty()) {
         node current = showStack.GetTop();
         showStack.Pop();
@@ -99,7 +96,7 @@ void BFS(int sx, int sy,int ex, int ey) {
     file.close();
     cout<<endl;
 
-    cout<<"²½³¤:"<<step<<endl;
+    cout<<"æ­¥é•¿:"<<step<<endl;
 }
 
 void Init()
@@ -227,7 +224,7 @@ void MainWindow::do_make_maze(){
         dun[wid-2][wid-2] = '8';
         dun[wid-3][wid-2] = '0';
         dun[wid-2][wid-3] = '0';
-    QString file_name = QFileDialog::getSaveFileName(this,tr("±£´æÃÔ¹¬"),"../Maze/maze",tr(".txt"));
+    QString file_name = QFileDialog::getSaveFileName(this,tr("ä¿å­˜è¿·å®«"),"../Maze/maze",tr(".txt"));
     QFile file(file_name);
     if(file.open(QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream out(&file);
@@ -247,7 +244,7 @@ void MainWindow::do_make_maze(){
     QMessageBox::information(this,"Message","Successful!");
 }
 void MainWindow::do_find_path(){
-    QString file_name = QFileDialog::getOpenFileName(this,tr("½âËøÃÔ¹¬"),"../Maze/maze",tr(".txt"));
+    QString file_name = QFileDialog::getOpenFileName(this,tr("è§£é”è¿·å®«"),"../Maze/maze",tr(".txt"));
     if(file_name.isNull()){
         return;
     }
@@ -302,7 +299,7 @@ void MainWindow::do_find_path(){
         double bTime = clock();
         BFS(sx, sy, ex, ey);
         double eTime = clock();
-        cout<<"»¨·ÑÊ±¼ä:"<<(eTime-bTime)*10<<" ms"<<endl;
+        cout<<"èŠ±è´¹æ—¶é—´:"<<(eTime-bTime)*10<<" ms"<<endl;
         return ;
 }
 
