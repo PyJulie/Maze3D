@@ -2,7 +2,6 @@
 #define CAMERA_H
 
 #include <vector>;
-
 #include <gl/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -45,8 +44,8 @@ public:
   glm::vec3 WorldUp;
   glm::vec3 Front;
 
-  glm::vec3 Up; //view×ø±êÏµ µÄÉÏ·½Ïò
-  glm::vec3 Right; // view×ø±êÏµµÄ ÓÒ·½Ïò
+  glm::vec3 Up; //viewåæ ‡ç³» çš„ä¸Šæ–¹å‘
+  glm::vec3 Right; // viewåæ ‡ç³»çš„ å³æ–¹å‘
   
   //Eular Angles
   GLfloat Picth;
@@ -59,6 +58,5 @@ public:
 private:
   void updateCameraVectors();
 };
-
 
 #endif // !CAMERA_H
