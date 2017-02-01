@@ -111,8 +111,7 @@ void Game::processInput(GLfloat dt)
 
 }
 
-void Game::update()
-{
+void Game::update(){
 }
 
 void Game::draw(GLfloat dt)
