@@ -58,7 +58,6 @@ int main(int argc, char *argv[]) {
     findPath.update();
     findPath.draw(deltaTime);
 
-
     glfwSwapBuffers(window);
   }
 
@@ -110,10 +109,8 @@ void mouse_buttoncallback(GLFWwindow *window, int button, int action, int mode) 
 
 }
 
-void mouse_callback(GLFWwindow* window, double xpos, double ypos)
-{
-  if (isFirstMouse)
-  {
+void mouse_callback(GLFWwindow* window, double xpos, double ypos){
+  if (isFirstMouse){
     lastX = xpos;
     lastY = ypos;
     isFirstMouse = GL_FALSE;
@@ -129,7 +126,6 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
     findPath.camera->ProcessMouseMovement(xoffset, yoffset);
 }
 
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
-{
+void scroll_callback(GLFWwindow* window, double xoffset, double yoffset){
   findPath.camera->ProcessMouseScroll(yoffset);
 }
