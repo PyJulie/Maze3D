@@ -9,10 +9,7 @@
 #include "object_renderer.h"
 #include "lamp.h"
 
-//enum objectType {
-//  WALL,
-//  ROAD
-//};
+
 
 struct Object {
   Object(Texture2D imag, Texture2D imagShader, glm::vec3 pos, glm::vec3 siz, glm::vec4 col): 
