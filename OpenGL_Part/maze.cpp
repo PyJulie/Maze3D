@@ -7,12 +7,10 @@
 #include "resource_manager.h"
 
 
-Maze::Maze()
-{
+Maze::Maze(){
 }
 
-void Maze::loadMazeFromFile(const char * file)
-{
+void Maze::loadMazeFromFile(const char * file){
   this->objects.clear();
 
   std::ifstream  fstream(file);
@@ -39,8 +37,7 @@ void Maze::loadMazeFromFile(const char * file)
   
 }
 
-void Maze::loadPathFromFile(const char * file)
-{
+void Maze::loadPathFromFile(const char * file){
   this->path.clear();
 
   std::ifstream fstream(file);
@@ -67,8 +64,7 @@ void Maze::loadPathFromFile(const char * file)
   //}
 }
 
-void Maze::draw(ObjectRenderer *renderer)
-{
+void Maze::draw(ObjectRenderer *renderer){
   for (std::vector<Object>::iterator iter = objects.begin(); iter != objects.end(); ++iter) {
     iter->draw(renderer);
     //renderer->drawObject(iter->image, iter->position, iter->size, iter->color);
@@ -84,8 +80,7 @@ GLboolean isChangeNode = GL_TRUE;
 glm::vec3 dtPos;
 /*temp*/
 
-void Maze::animation(ObjectRenderer * renderer, GLfloat dt)
-{
+void Maze::animation(ObjectRenderer * renderer, GLfloat dt){
   if (isChangeNode == GL_TRUE) {
     if (pathOrder != path.size()-1) {
       isChangeNode = GL_FALSE;
@@ -185,7 +180,7 @@ void Maze::initData(std::vector<std::vector<GLuint>> data)
 }
 
 /*temp*/
-//¼ì²âÁ½¸öobjectµÄpositionÊÇ·ñÖØµş
+//Â¼Ã¬Â²Ã¢ÃÂ½Â¸Ã¶objectÂµÃ„positionÃŠÃ‡Â·Ã±Ã–Ã˜ÂµÃ¾
 /*temp*/
 GLboolean checkCollision(Object &one, Object &two) {
 /*  glm::vec3 onePos = one.position;
