@@ -2,22 +2,19 @@
 
 #include <iostream>
 
-ObjectRenderer::ObjectRenderer(const Shader & shader)
-{
+ObjectRenderer::ObjectRenderer(const Shader & shader){
   this->shader = shader;
   initData();
 }
 
-ObjectRenderer::~ObjectRenderer()
-{
+ObjectRenderer::~ObjectRenderer(){
   glDeleteVertexArrays(1, &this->cubeVAO);
   glDeleteVertexArrays(1, &this->lampVAO);
 }
 
 
 
-void ObjectRenderer::drawObject(Texture2D & texture, Texture2D & texShader, glm::vec3 position, glm::vec3 size, glm::vec4 color)
-{
+void ObjectRenderer::drawObject(Texture2D & texture, Texture2D & texShader, glm::vec3 position, glm::vec3 size, glm::vec4 color){
   this->shader.use();
   glm::mat4 model;
  
@@ -39,8 +36,7 @@ void ObjectRenderer::drawObject(Texture2D & texture, Texture2D & texShader, glm:
   
 }
 
-void ObjectRenderer::drawLamp(glm::vec3 position, glm::vec3 size, glm::vec4 color)
-{
+void ObjectRenderer::drawLamp(glm::vec3 position, glm::vec3 size, glm::vec4 color){
   this->shader.use();
   
   glm::mat4 model;
@@ -55,8 +51,7 @@ void ObjectRenderer::drawLamp(glm::vec3 position, glm::vec3 size, glm::vec4 colo
   glBindVertexArray(0);
 }
 
-void ObjectRenderer::initData()
-{
+void ObjectRenderer::initData(){
   GLfloat vertices[] = {
     // Positions          // Normals           // Texture Coords
     -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f,  0.0f,
