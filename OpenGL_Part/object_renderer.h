@@ -22,5 +22,4 @@ private:
 };
 
 
-
 #endif // !OBJECT_RENDER_H
