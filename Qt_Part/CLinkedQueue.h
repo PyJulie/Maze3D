@@ -6,8 +6,7 @@
 using namespace std;
 
 template <typename T>
-class CLinkedQueue
-{
+class CLinkedQueue{
 public:
         CLinkedQueue();
         ~CLinkedQueue();
@@ -25,33 +24,27 @@ private:
 };
 
 template <typename T>
-CLinkedQueue<T>::CLinkedQueue():m_CFront(NULL),m_CRear(NULL)
-{
+CLinkedQueue<T>::CLinkedQueue():m_CFront(NULL),m_CRear(NULL){
 }
 
 template <typename T>
-CLinkedQueue<T>::~CLinkedQueue()
-{
+CLinkedQueue<T>::~CLinkedQueue(){
         MakeEmpty();
 }
 
 template <typename T>
-void CLinkedQueue<T>::Print()
-{
+void CLinkedQueue<T>::Print(){
         CLinkNode<T> *current = m_CFront;
-        while(current != NULL)
-        {
+        while(current != NULL){
                 cout << current -> m_TData << " ";
                 current = current -> m_CNext;
         }
         cout << endl;
 }
 template <typename T>
-void CLinkedQueue<T>::MakeEmpty()
-{
+void CLinkedQueue<T>::MakeEmpty(){
         CLinkNode<T> *current;
-        while(m_CFront != NULL)
-        {
+        while(m_CFront != NULL){
                 current = m_CFront;
                 m_CFront = m_CFront -> m_CNext;
                 delete current;
@@ -60,22 +53,18 @@ void CLinkedQueue<T>::MakeEmpty()
 }
 
 template <typename T>
-bool CLinkedQueue<T>::IsEmpty()
-{
+bool CLinkedQueue<T>::IsEmpty(){
         return (m_CFront == NULL)? true : false;
 }
 
 template <typename T>
-bool CLinkedQueue<T>::EnQueue(const T& value)
-{
-        if(m_CFront == NULL)
-        {
+bool CLinkedQueue<T>::EnQueue(const T& value){
+        if(m_CFront == NULL){
                 m_CFront = m_CRear = new CLinkNode<T>(value);
                 if(m_CFront == NULL)
                         cout << "Error Distribution!" << endl;return false;
         }
-        else
-        {
+        else{
                 m_CRear -> m_CNext = new CLinkNode<T>(value);
                 m_CRear = m_CRear -> m_CNext;
         }
@@ -83,8 +72,7 @@ bool CLinkedQueue<T>::EnQueue(const T& value)
 }
 
 template <typename T>
-bool CLinkedQueue<T>::DeQueue()
-{
+bool CLinkedQueue<T>::DeQueue(){
         if(IsEmpty() == true)
                 return false;
         CLinkNode<T> *current = m_CFront;
@@ -97,18 +85,15 @@ bool CLinkedQueue<T>::DeQueue()
 }
 
 template <typename T>
-T& CLinkedQueue<T>::GetFront()
-{
+T& CLinkedQueue<T>::GetFront(){
         return m_CFront->m_TData;
 }
 
 template <typename T>
-int CLinkedQueue<T>::GetSize()
-{
+int CLinkedQueue<T>::GetSize(){
         int number = 0;
         CLinkNode<T> *current = m_CFront;
-        while(current != NULL)
-        {
+        while(current != NULL){
                 ++number;
                 current = current -> m_CNext;
         }
