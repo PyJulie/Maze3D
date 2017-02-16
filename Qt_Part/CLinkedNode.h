@@ -9,18 +9,15 @@ class CLinkedQueue;
 template <typename T>
 class CLinkedStack;
 template <typename T>
-class CLinkNode
-{
+class CLinkNode{
         friend class CLinkedQueue<T>;
         //friend ostream& operator << (ostream& os,CLinkedQueue<T>& lq);
 public:
-        CLinkNode(CLinkNode<T> *ptr = NULL)
-        {
+        CLinkNode(CLinkNode<T> *ptr = NULL){
                 m_CNext = ptr;
         }
 
-        CLinkNode(const T& value,CLinkNode<T> *ptr = NULL)
-        {
+        CLinkNode(const T& value,CLinkNode<T> *ptr = NULL){
                 m_TData = value;
                 m_CNext = ptr;
         }
