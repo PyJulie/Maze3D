@@ -4,8 +4,7 @@
 #include <iostream>
 #include <string>
 template <typename T>
-class CLinkedStack
-{
+class CLinkedStack{
 public:
         CLinkedStack();
         ~CLinkedStack();
@@ -22,24 +21,20 @@ private:
 };
 
 template <typename T>
-CLinkedStack<T>::CLinkedStack()//:m_TTop(NULL)
-{
+CLinkedStack<T>::CLinkedStack()//:m_TTop(NULL){
         m_TTop = new CLinkNode<T>();
         m_TTop = NULL;
 }
 
 template <typename T>
-CLinkedStack<T>::~CLinkedStack()
-{
+CLinkedStack<T>::~CLinkedStack(){
         MakeEmpty();
 }
 
 template <typename T>
-void CLinkedStack<T>::MakeEmpty()
-{
+void CLinkedStack<T>::MakeEmpty(){
         CLinkNode<T> *current;
-        while(m_TTop != NULL)
-        {
+        while(m_TTop != NULL){
                 current = m_TTop;
                 m_TTop = m_TTop -> m_CNext;
                 delete current;
@@ -47,14 +42,12 @@ void CLinkedStack<T>::MakeEmpty()
 }
 
 template <typename T>
-bool CLinkedStack<T>::IsEmpty()
-{
+bool CLinkedStack<T>::IsEmpty(){
         return (m_TTop == NULL) ? true : false;
 }
 
 template <typename T>
-void CLinkedStack<T>::Push(const T& value)
-{
+void CLinkedStack<T>::Push(const T& value){
         m_TTop = new CLinkNode<T>(value,m_TTop);
         if(m_TTop == NULL)
                 cout << "Error Distribution!" << endl;
@@ -63,10 +56,8 @@ void CLinkedStack<T>::Push(const T& value)
 }
 
 template <typename T>
-bool CLinkedStack<T>::Pop()
-{
-        if(IsEmpty() == true)
-        {
+bool CLinkedStack<T>::Pop(){
+        if(IsEmpty() == true){
                 cout << " Empty" << endl;
                 return false;
         }
@@ -81,18 +72,15 @@ bool CLinkedStack<T>::Pop()
 }
 
 template <typename T>
-T& CLinkedStack<T>::GetTop()
-{
+T& CLinkedStack<T>::GetTop(){
         return m_TTop->m_TData;
 }
 
 template <typename T>
-int CLinkedStack<T>::GetSize()
-{
+int CLinkedStack<T>::GetSize(){
         CLinkNode<T> *current = m_TTop;
         int i = 0;
-        while(current != NULL)
-        {
+        while(current != NULL){
                 ++i;
                 current = current -> m_TNext;
         }
